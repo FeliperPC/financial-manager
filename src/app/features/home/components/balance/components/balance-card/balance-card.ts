@@ -1,8 +1,12 @@
 import { Component, computed, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
-type CardType = 'income' | 'outcome' | 'balance';
-type ValueCssClass = 'income' | 'outcome';
+type CardType = 'income' | 'balance' | 'outcome';
+enum ValueCssClass {
+  income = 'income',
+  outcome = 'outcome',
+  zero = 'zero',
+}
 
 @Component({
   selector: 'app-balance-card',
@@ -16,13 +20,16 @@ export class BalanceCard {
   value = input.required<number>();
 
   cssClass = computed<ValueCssClass>(() => {
+    if (this.value() == 0) {
+      return ValueCssClass.zero;
+    }
     switch (this.type()) {
-      case 'income':
-        return 'income';
-      case 'outcome':
-        return 'outcome';
+      case ValueCssClass.income:
+        return ValueCssClass.income;
+      case ValueCssClass.outcome:
+        return ValueCssClass.outcome;
       default:
-        return this.value() > 0 ? 'income' : 'outcome';
+        return this.value() > 0 ? ValueCssClass.income : ValueCssClass.outcome;
     }
   });
 }
