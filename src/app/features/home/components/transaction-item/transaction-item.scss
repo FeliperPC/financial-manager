@@ -1,0 +1,21 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  padding: 18px;
+
+  .card-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  .card-title {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .card-value {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+}
