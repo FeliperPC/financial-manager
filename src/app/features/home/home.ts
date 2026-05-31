@@ -3,10 +3,11 @@ import { Balance } from './components/balance/balance';
 import { TransactionItem } from './components/transaction-item/transaction-item';
 import { TransactionType } from '../../shared/transactions/interfaces/enums/transaction-type';
 import { Transaction } from '../../shared/transactions/interfaces/transaction';
+import { NoTransaction } from './components/no-transaction/no-transaction';
 
 @Component({
   selector: 'app-home',
-  imports: [Balance, TransactionItem],
+  imports: [Balance, TransactionItem, NoTransaction],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

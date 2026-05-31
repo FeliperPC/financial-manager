@@ -1,0 +1,11 @@
+{
+  "transactions": [
+    { "id": 1, "title": "Salary", "value": 3000, "type": "income" },
+    { "id": 2, "title": "Shopping", "value": 150, "type": "outcome" },
+    { "id": 3, "title": "Pet shop", "value": 80, "type": "outcome" },
+    { "id": 4, "title": "Freelance", "value": 750, "type": "income" },
+    { "id": 5, "title": "Electricity bill", "value": 120, "type": "outcome" },
+    { "id": 6, "title": "Netflix", "value": 18, "type": "outcome" },
+    { "id": 7, "title": "Bonus", "value": 500, "type": "income" }
+  ]
+}
