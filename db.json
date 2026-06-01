@@ -1,11 +1,77 @@
 {
   "transactions": [
-    { "id": 1, "title": "Salary", "value": 3000, "type": "income" },
-    { "id": 2, "title": "Shopping", "value": 150, "type": "outcome" },
-    { "id": 3, "title": "Pet shop", "value": 80, "type": "outcome" },
-    { "id": 4, "title": "Freelance", "value": 750, "type": "income" },
-    { "id": 5, "title": "Electricity bill", "value": 120, "type": "outcome" },
-    { "id": 6, "title": "Netflix", "value": 18, "type": "outcome" },
-    { "id": 7, "title": "Bonus", "value": 500, "type": "income" }
-  ]
+    {
+      "id": "1",
+      "title": "Salary",
+      "value": 3000,
+      "type": "income"
+    },
+    {
+      "id": "2",
+      "title": "Shopping",
+      "value": 150,
+      "type": "outcome"
+    },
+    {
+      "id": "3",
+      "title": "Pet shop",
+      "value": 80,
+      "type": "outcome"
+    },
+    {
+      "id": "4",
+      "title": "Freelance",
+      "value": 750,
+      "type": "income"
+    },
+    {
+      "id": "5",
+      "title": "Electricity bill",
+      "value": 120,
+      "type": "outcome"
+    },
+    {
+      "id": "6",
+      "title": "Netflix",
+      "value": 18,
+      "type": "outcome"
+    },
+    {
+      "id": "7",
+      "title": "Bonus",
+      "value": 500,
+      "type": "income"
+    },
+    {
+      "title": "Gaz",
+      "value": 122,
+      "type": "outcome",
+      "id": "8_l8AP0eHZw"
+    },
+    {
+      "title": "This is a test",
+      "value": 22.9,
+      "type": "outcome",
+      "id": "cbX-jFM2sSU"
+    },
+    {
+      "title": "dsas",
+      "value": 4480,
+      "type": "income",
+      "id": "uDERDjWtmM0"
+    },
+    {
+      "title": "d2332",
+      "value": 8890,
+      "type": "income",
+      "id": "1NsUOwe_YZw"
+    },
+    {
+      "title": "fdadsa",
+      "value": 22395,
+      "type": "outcome",
+      "id": "gxJ5gnkYhgc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
