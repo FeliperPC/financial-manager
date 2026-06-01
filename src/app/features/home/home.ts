@@ -1,13 +1,11 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Balance } from './components/balance/balance';
 import { TransactionItem } from './components/transaction-item/transaction-item';
-import { TransactionType } from '../../shared/transactions/enums/transaction-type';
 import { Transaction } from '../../shared/transactions/interfaces/transaction';
 import { NoTransaction } from './components/no-transaction/no-transaction';
-import { HttpClient } from '@angular/common/http';
 import { TransactionsService } from '../../shared/transactions/services/transactions-service';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +14,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.scss',
 })
 export class Home implements OnInit {
+  private router = inject(Router);
   transactionsService = inject(TransactionsService);
   transactions = signal<Transaction[]>([]);
 
@@ -29,5 +28,9 @@ export class Home implements OnInit {
         this.transactions.set(result);
       },
     });
+  }
+
+  edit(transaction: Transaction) {
+    this.router.navigate(['edit', transaction.id]);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -8,7 +8,7 @@ import { TransactionType } from '../../../../shared/transactions/enums/transacti
 import { NgxMaskDirective } from 'ngx-mask';
 import { TransactionPayload } from '../../../../shared/transactions/interfaces/transaction';
 import { TransactionsService } from '../../../../shared/transactions/services/transactions-service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Feedback } from '../../../../shared/feedback/services/feedback';
 
 @Component({
@@ -21,14 +21,19 @@ import { Feedback } from '../../../../shared/feedback/services/feedback';
     MatButtonToggleModule,
     NgxMaskDirective,
   ],
-  templateUrl: './create.html',
-  styleUrl: './create.scss',
+  templateUrl: './create-or-edit.html',
+  styleUrl: './create-or-edit.scss',
 })
-export class Create {
+export class CreateOrEdit implements OnInit {
+  readonly activeRoute = inject(ActivatedRoute);
   private transactionService = inject(TransactionsService);
   private router = inject(Router);
   readonly transactionType = TransactionType;
   private snackBarService = inject(Feedback);
+
+  ngOnInit(): void {
+    console.log(this.activeRoute.snapshot.data);
+  }
 
   form = new FormGroup({
     type: new FormControl<string>('', { validators: [Validators.required] }),
