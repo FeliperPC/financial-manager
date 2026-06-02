@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="card-actions">
-    <button matButton="filled">Remove</button>
+    <button matButton="filled" (click)="remove.emit(transaction())">Remove</button>
     <button matButton="filled" (click)="edit.emit(transaction())">Edit</button>
   </div>
 </mat-card>
