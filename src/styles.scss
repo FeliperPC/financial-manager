@@ -6,8 +6,9 @@
 @use '@angular/material' as mat;
 @use 'styles/theme-colors' as theme-colors;
 @use 'styles/overrides/toolbar.scss';
-@use './styles/overrides/custom-colors';
+@use './styles/custom-colors';
 @use './styles/overrides/snack-bar.scss';
+@use './styles/overrides/button.scss';
 
 html {
   @include mat.theme(
