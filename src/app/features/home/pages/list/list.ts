@@ -1,20 +1,21 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
-import { Balance } from './components/balance/balance';
-import { TransactionItem } from './components/transaction-item/transaction-item';
-import { Transaction } from '../../shared/transactions/interfaces/transaction';
-import { NoTransaction } from './components/no-transaction/no-transaction';
-import { TransactionsService } from '../../shared/transactions/services/transactions-service';
-import { MatButtonModule } from '@angular/material/button';
+import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { Feedback } from '../../shared/feedback/services/feedback';
-import { Confirmation } from '../../shared/dialog/confirmation/services/confirmation';
+import { Confirmation } from '../../../../shared/dialog/confirmation/services/confirmation';
+import { Feedback } from '../../../../shared/feedback/services/feedback';
+import { Transaction } from '../../../../shared/transactions/interfaces/transaction';
+import { TransactionsService } from '../../../../shared/transactions/services/transactions-service';
+import { MatButtonModule } from '@angular/material/button';
+import { TransactionItem } from './components/transaction-item/transaction-item';
+import { NoTransaction } from './components/no-transaction/no-transaction';
+import { Balance } from './components/balance/balance';
+
 @Component({
-  selector: 'app-home',
+  selector: 'app-list',
   imports: [Balance, TransactionItem, NoTransaction, MatButtonModule, RouterLink],
-  templateUrl: './home.html',
-  styleUrl: './home.scss',
+  templateUrl: './list.html',
+  styleUrl: './list.scss',
 })
-export class Home implements OnInit {
+export class List {
   private router = inject(Router);
   transactionsService = inject(TransactionsService);
   transactions = signal<Transaction[]>([]);

@@ -2,7 +2,7 @@
   "transactions": [
     {
       "title": "This is another test ",
-      "value": 5000,
+      "value": 1000,
       "type": "income",
       "id": "0mWEzp9DuC0"
     },
@@ -17,6 +17,12 @@
       "value": 6550,
       "type": "outcome",
       "id": "KkSty-X1iWk"
+    },
+    {
+      "title": "Salary",
+      "value": 25000,
+      "type": "income",
+      "id": "0j-c7yVsJ9I"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
