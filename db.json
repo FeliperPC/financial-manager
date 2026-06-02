@@ -67,10 +67,22 @@
       "id": "1NsUOwe_YZw"
     },
     {
-      "title": "fdadsa",
-      "value": 22395,
+      "title": "updated yeah",
+      "value": 2200,
       "type": "outcome",
       "id": "gxJ5gnkYhgc"
+    },
+    {
+      "title": "This is another test ",
+      "value": 5000,
+      "type": "income",
+      "id": "0mWEzp9DuC0"
+    },
+    {
+      "title": "angular course",
+      "value": 740,
+      "type": "outcome",
+      "id": "Mrtz-2hGb0A"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
