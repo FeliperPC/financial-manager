@@ -76,13 +76,13 @@ export class CreateOrEdit {
     if (this.isEdit()) {
       return this.transactionService.update(this.transaction()!.id, payload).pipe(
         tap(() => {
-          this.snackBarService.open('Transaction updated successfully');
+          this.snackBarService.success('Transaction updated successfully');
         }),
       );
     }
     return this.transactionService.create(payload).pipe(
       tap(() => {
-        this.snackBarService.open('Transaction created successfully');
+        this.snackBarService.success('Transaction created successfully');
       }),
     );
   }

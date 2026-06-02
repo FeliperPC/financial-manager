@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class Feedback {
   private snackBar = inject(MatSnackBar);
-  open(message: string) {
+  success(message: string) {
     this.snackBar.open(message, 'Ok', {
       panelClass: 'snack-bar-success',
     });
