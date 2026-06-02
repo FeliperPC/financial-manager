@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, input, linkedSignal, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { Confirmation } from '../../../../shared/dialog/confirmation/services/confirmation';
 import { Feedback } from '../../../../shared/feedback/services/feedback';
@@ -18,21 +18,11 @@ import { Balance } from './components/balance/balance';
 export class List {
   private router = inject(Router);
   transactionsService = inject(TransactionsService);
-  transactions = signal<Transaction[]>([]);
+  transactions = input.required<Transaction[]>();
   snackBarService = inject(Feedback);
   dialogService = inject(Confirmation);
 
-  ngOnInit(): void {
-    this.getTransactions();
-  }
-
-  private getTransactions() {
-    this.transactionsService.getAll().subscribe({
-      next: (result) => {
-        this.transactions.set(result);
-      },
-    });
-  }
+  list = linkedSignal(() => this.transactions());
 
   edit(transaction: Transaction) {
     this.router.navigate(['edit', transaction.id]);
@@ -57,8 +47,6 @@ export class List {
   }
 
   private removeTransactionFromArray(transaction: Transaction) {
-    this.transactions.update((transactions) =>
-      transactions.filter((item) => item.id !== transaction.id),
-    );
+    this.list.update((transactions) => transactions.filter((item) => item.id !== transaction.id));
   }
 }

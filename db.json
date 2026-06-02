@@ -1,28 +1,22 @@
 {
   "transactions": [
     {
-      "title": "This is another test ",
-      "value": 1000,
-      "type": "income",
-      "id": "0mWEzp9DuC0"
-    },
-    {
-      "title": "angular course",
-      "value": 740,
-      "type": "outcome",
-      "id": "Mrtz-2hGb0A"
-    },
-    {
       "title": "Mac book",
       "value": 6550,
       "type": "outcome",
-      "id": "KkSty-X1iWk"
+      "id": "tA9Q3uuRbHM"
     },
     {
       "title": "Salary",
       "value": 25000,
       "type": "income",
-      "id": "0j-c7yVsJ9I"
+      "id": "FRq4DU6y__E"
+    },
+    {
+      "title": "Safe amount",
+      "value": 15000,
+      "type": "income",
+      "id": "4W_aXodAc30"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

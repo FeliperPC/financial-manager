@@ -1,11 +1,11 @@
-<app-balance [transactions]="transactions()"></app-balance>
+<app-balance [transactions]="list()"></app-balance>
 
 <div class="actions">
   <a matButton="filled" routerLink="create">New Transaction</a>
 </div>
 
 <div class="transactions">
-  @for (transaction of transactions(); track $index) {
+  @for (transaction of list(); track $index) {
     <app-transaction-item
       class="transaction"
       [transaction]="transaction"
