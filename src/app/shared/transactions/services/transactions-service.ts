@@ -9,22 +9,22 @@ export class TransactionsService {
   private httpClient = inject(HttpClient);
 
   getAll() {
-    return this.httpClient.get<Transaction[]>('http://localhost:3000/transactions');
+    return this.httpClient.get<Transaction[]>('/api/transactions');
   }
 
   getTransactionById(id: string) {
-    return this.httpClient.get<Transaction>(`http://localhost:3000/transactions/${id}`);
+    return this.httpClient.get<Transaction>(`/api/transactions/${id}`);
   }
 
   create(payload: TransactionPayload) {
-    return this.httpClient.post<Transaction>('http://localhost:3000/transactions', payload);
+    return this.httpClient.post<Transaction>('/api/transactions', payload);
   }
 
   update(id: number, payload: TransactionPayload) {
-    return this.httpClient.put<Transaction>(`http://localhost:3000/transactions/${id}`, payload);
+    return this.httpClient.put<Transaction>(`/api/transactions/${id}`, payload);
   }
 
   remove(id: number) {
-    return this.httpClient.delete<Transaction>(`http://localhost:3000/transactions/${id}`);
+    return this.httpClient.delete<Transaction>(`/api/transactions/${id}`);
   }
 }
