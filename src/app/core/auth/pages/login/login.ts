@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { Auth } from '../../services/auth';
+import { AuthPayload } from '../../interfaces/authPayload';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +15,28 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './login.scss',
 })
 export class Login {
+  authService = inject(Auth);
+  router = inject(Router);
   form = new FormGroup({
     login: new FormControl('', { validators: [Validators.required] }),
     password: new FormControl('', { validators: [Validators.required] }),
   });
 
   submit() {
-    throw new Error('Method not implemented.');
+    if (this.form.invalid) {
+      return;
+    }
+    const payload: AuthPayload = {
+      login: this.form.controls.login.value as string,
+      password: this.form.controls.password.value as string,
+    };
+    this.authService.login(payload).subscribe({
+      next: () => this.router.navigate(['']),
+      error: (response: HttpErrorResponse) => {
+        this.form.setErrors({
+          wrongCredentials: true,
+        });
+      },
+    });
   }
 }
