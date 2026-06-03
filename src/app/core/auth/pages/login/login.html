@@ -13,6 +13,9 @@
       <mat-error>Password is required</mat-error>
     }
   </mat-form-field>
+  @if (form.hasError('wrongCredentials')) {
+    <mat-error>Invalid credentials</mat-error>
+  }
   <div class="submit-container">
     <button matButton="filled" type="submit" [disabled]="form.invalid">Log in</button>
   </div>
