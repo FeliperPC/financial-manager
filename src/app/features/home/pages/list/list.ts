@@ -1,9 +1,9 @@
 import { Component, inject, input, linkedSignal, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { Confirmation } from '../../../../shared/dialog/confirmation/services/confirmation';
-import { Feedback } from '../../../../shared/feedback/services/feedback';
-import { Transaction } from '../../../../shared/transactions/interfaces/transaction';
-import { TransactionsService } from '../../../../shared/transactions/services/transactions-service';
+import { Confirmation } from '@shared/dialog/confirmation/services/confirmation';
+import { Feedback } from '@shared/feedback/services/feedback';
+import { Transaction } from '@shared/transactions/interfaces/transaction';
+import { TransactionsService } from '@shared/transactions/services/transactions-service';
 import { MatButtonModule } from '@angular/material/button';
 import { TransactionItem } from './components/transaction-item/transaction-item';
 import { NoTransaction } from './components/no-transaction/no-transaction';
