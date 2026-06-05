@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthToken } from '../../services/auth-token.ts';
 import { LoggedUser } from '../../stores/logged-user';
-import { switchMap, tap } from 'rxjs';
+import { LoginFacede } from '../../facedes/login-facede';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +22,7 @@ export class Login {
   authToken = inject(AuthToken);
   router = inject(Router);
   userStore = inject(LoggedUser);
+  loginFacade = inject(LoginFacede);
   form = new FormGroup({
     login: new FormControl('', { validators: [Validators.required] }),
     password: new FormControl('', { validators: [Validators.required] }),
@@ -35,22 +36,15 @@ export class Login {
       login: this.form.controls.login.value as string,
       password: this.form.controls.password.value as string,
     };
-    this.authService
-      .login(payload)
-      .pipe(
-        tap((res) => this.authToken.set(res.token)),
-        switchMap((res) => this.authService.getCurrentUser(res.token)),
-        tap((user) => this.userStore.setUser(user)),
-      )
-      .subscribe({
-        next: () => {
-          this.router.navigate(['']);
-        },
-        error: (response: HttpErrorResponse) => {
-          this.form.setErrors({
-            wrongCredentials: true,
-          });
-        },
-      });
+    this.loginFacade.login(payload).subscribe({
+      next: () => {
+        this.router.navigate(['']);
+      },
+      error: (response: HttpErrorResponse) => {
+        this.form.setErrors({
+          wrongCredentials: true,
+        });
+      },
+    });
   }
 }
