@@ -12,6 +12,10 @@ export class AuthToken {
     this.localStorage.setItem(this.key, token);
   }
 
+  has(): boolean {
+    return Boolean(this.get());
+  }
+
   get(): string | null {
     return this.localStorage.getItem(this.key);
   }

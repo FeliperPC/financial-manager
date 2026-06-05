@@ -11,7 +11,9 @@ export class LoggedUser {
   loggedUser = computed(() => this.state());
 
   // returns if the user is logged or not
-  isLoggedIn = computed(() => this.state() !== null);
+  isLoggedIn = computed(() => {
+    return this.state() !== null;
+  });
 
   // call this method to create a store
   setUser(user: User) {

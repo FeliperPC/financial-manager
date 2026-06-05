@@ -17,6 +17,12 @@
       "value": 15000,
       "type": "income",
       "id": "4W_aXodAc30"
+    },
+    {
+      "title": "This is a test",
+      "value": 2500,
+      "type": "income",
+      "id": "bvN_zo_HyQk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
