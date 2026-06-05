@@ -9,7 +9,7 @@ import { AuthTokenResponse } from '../interfaces/authToken';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginFacede {
+export class LoginFacade {
   authService = inject(Auth);
   authToken = inject(AuthToken);
   userStore = inject(LoggedUser);

@@ -1,18 +1,18 @@
 import { inject, provideAppInitializer } from '@angular/core';
 import { AuthToken } from '../services/auth-token.ts';
-import { LoginFacede } from '../facedes/login-facede';
 import { of } from 'rxjs';
+import { LoginFacade } from '../facades/login-facade.js';
 
 export function provideLoggedUser() {
   return provideAppInitializer(() => {
     const authToken = inject(AuthToken);
-    const loginFacede = inject(LoginFacede);
+    const loginFacade = inject(LoginFacade);
 
     if (!authToken.has()) {
       return of();
     }
 
     const token = authToken.get() as string;
-    return loginFacede.refreshToken(token);
+    return loginFacade.refreshToken(token);
   });
 }

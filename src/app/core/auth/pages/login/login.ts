@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthToken } from '../../services/auth-token.ts';
 import { LoggedUser } from '../../stores/logged-user';
-import { LoginFacede } from '../../facedes/login-facede';
+import { LoginFacade } from '../../facades/login-facade';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +22,7 @@ export class Login {
   authToken = inject(AuthToken);
   router = inject(Router);
   userStore = inject(LoggedUser);
-  loginFacade = inject(LoginFacede);
+  loginFacade = inject(LoginFacade);
   form = new FormGroup({
     login: new FormControl('', { validators: [Validators.required] }),
     password: new FormControl('', { validators: [Validators.required] }),

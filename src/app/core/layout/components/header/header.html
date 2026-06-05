@@ -1,5 +1,10 @@
 <header>
-  <mat-toolbar>
-    <span>My Application</span>
+  <mat-toolbar class="toolbar">
+    <div class="mat-content">
+      <span>Financial Manager</span>
+      @if (isLoggedIn()) {
+        <button class="btn-logout" (click)="logout()" matButton="tonal">Log out</button>
+      }
+    </div>
   </mat-toolbar>
 </header>

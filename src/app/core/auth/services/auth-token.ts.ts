@@ -19,4 +19,8 @@ export class AuthToken {
   get(): string | null {
     return this.localStorage.getItem(this.key);
   }
+
+  remove(): void {
+    return this.localStorage.removeItem(this.key);
+  }
 }
