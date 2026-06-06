@@ -1,12 +1,6 @@
 {
   "transactions": [
     {
-      "title": "Mac book",
-      "value": 6550,
-      "type": "outcome",
-      "id": "tA9Q3uuRbHM"
-    },
-    {
       "title": "Salary",
       "value": 25000,
       "type": "income",
@@ -23,6 +17,12 @@
       "value": 2500,
       "type": "income",
       "id": "bvN_zo_HyQk"
+    },
+    {
+      "title": "Macbook",
+      "value": 6550,
+      "type": "outcome",
+      "id": "8iwoJr0wrLA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
