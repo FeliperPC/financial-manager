@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
 import { Login } from './login';
-import { Layout } from '../../components/layout/layout';
+import { LayoutComponent } from '../../components/layout/layout';
 
 export default [
   {
     path: '',
-    component: Layout,
+    component: LayoutComponent,
     children: [
       {
         path: 'login',
