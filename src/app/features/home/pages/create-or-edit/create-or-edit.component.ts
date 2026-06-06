@@ -6,11 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgxMaskDirective } from 'ngx-mask';
 import { Transaction, TransactionPayload } from '@shared/transactions/interfaces/transaction';
-import { TransactionsService } from '@shared/transactions/services/transactions';
 import { Router } from '@angular/router';
 import { Feedback } from '@shared/feedback/services/feedback.service';
 import { tap } from 'rxjs';
 import { TransactionType } from '@shared/transactions/enums/transaction-type';
+import { TransactionsService } from '@shared/transactions/services/transactions.service';
+import { FullWidthDirective } from '@shared/material/form-field/directives/full-width.directive';
 
 @Component({
   selector: 'app-create',
@@ -21,6 +22,7 @@ import { TransactionType } from '@shared/transactions/enums/transaction-type';
     MatButtonModule,
     MatButtonToggleModule,
     NgxMaskDirective,
+    FullWidthDirective,
   ],
   templateUrl: './create-or-edit.component.html',
   styleUrl: './create-or-edit.component.scss',

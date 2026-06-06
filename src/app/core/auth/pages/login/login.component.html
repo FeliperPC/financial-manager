@@ -1,12 +1,12 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
-  <mat-form-field class="w-100 mb-24">
+  <mat-form-field class="mb-24" appFullWidth>
     <mat-label>Login</mat-label>
     <input matInput placeholder="type your login" formControlName="login" required />
     @if (form.controls.login.invalid) {
       <mat-error>Login is required</mat-error>
     }
   </mat-form-field>
-  <mat-form-field class="w-100 mb-24">
+  <mat-form-field class="mb-24" appFullWidth>
     <mat-label>Password</mat-label>
     <input matInput type="password" formControlName="password" required />
     @if (form.controls.password.invalid) {

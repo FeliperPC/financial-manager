@@ -8,10 +8,17 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LoggedUser } from '../../stores/logged-user';
 import { LoginFacade } from '../../facades/login-facade';
+import { FullWidthDirective } from '@shared/material/form-field/directives/full-width.directive';
 
 @Component({
   selector: 'app-login',
-  imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonModule],
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    FullWidthDirective,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
