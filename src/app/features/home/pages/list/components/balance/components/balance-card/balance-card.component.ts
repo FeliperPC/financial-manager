@@ -11,8 +11,8 @@ enum ValueCssClass {
 @Component({
   selector: 'app-balance-card',
   imports: [MatCardModule],
-  templateUrl: './balance-card.html',
-  styleUrl: './balance-card.scss',
+  templateUrl: './balance-card.component.html',
+  styleUrl: './balance-card.component.scss',
 })
 export class BalanceCard {
   type = input.required<CardType>();

@@ -11,7 +11,7 @@ const cssClass = {
   selector: 'app-transaction-value',
   imports: [],
   template: `{{ transaction().value }}`,
-  styleUrl: './transaction-value.scss',
+  styleUrl: './transaction-value.component.scss',
   host: {
     '[class]': 'cssClass()',
   },

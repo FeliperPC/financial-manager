@@ -1,7 +1,7 @@
 import { inject, provideAppInitializer } from '@angular/core';
 import { of } from 'rxjs';
 import { LoginFacade } from '../facades/login-facade.js';
-import { AuthToken } from '../services/auth-token.js';
+import { AuthToken } from '../services/auth-token.service.js';
 
 export function provideLoggedUser() {
   return provideAppInitializer(() => {

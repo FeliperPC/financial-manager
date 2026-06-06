@@ -1,19 +1,19 @@
 import { Component, inject, input, linkedSignal, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { Confirmation } from '@shared/dialog/confirmation/services/confirmation';
-import { Feedback } from '@shared/feedback/services/feedback';
+import { Confirmation } from '@shared/dialog/confirmation/services/confirmation.service';
+import { Feedback } from '@shared/feedback/services/feedback.service';
 import { Transaction } from '@shared/transactions/interfaces/transaction';
-import { TransactionsService } from '@shared/transactions/services/transactions-service';
+import { TransactionsService } from '@shared/transactions/services/transactions';
 import { MatButtonModule } from '@angular/material/button';
-import { TransactionItem } from './components/transaction-item/transaction-item';
-import { NoTransaction } from './components/no-transaction/no-transaction';
-import { Balance } from './components/balance/balance';
+import { TransactionItem } from './components/transaction-item/transaction-item.component';
+import { NoTransaction } from './components/no-transaction/no-transaction.component';
+import { Balance } from './components/balance/balance.component';
 
 @Component({
   selector: 'app-list',
   imports: [Balance, TransactionItem, NoTransaction, MatButtonModule, RouterLink],
-  templateUrl: './list.html',
-  styleUrl: './list.scss',
+  templateUrl: './list.component.html',
+  styleUrl: './list.component.scss',
 })
 export class List {
   private router = inject(Router);

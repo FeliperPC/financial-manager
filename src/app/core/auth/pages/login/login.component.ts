@@ -12,8 +12,8 @@ import { LoginFacade } from '../../facades/login-facade';
 @Component({
   selector: 'app-login',
   imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonModule],
-  templateUrl: './login.html',
-  styleUrl: './login.scss',
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss',
 })
 export class Login {
   router = inject(Router);

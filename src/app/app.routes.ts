@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     canActivate: [isAuthenticated],
-    loadComponent: () => import('./core/layout/layout').then((m) => m.LayoutComponent),
+    loadComponent: () => import('./core/layout/layout.component').then((m) => m.LayoutComponent),
     children: [
       {
         path: '',

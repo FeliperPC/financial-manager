@@ -6,9 +6,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgxMaskDirective } from 'ngx-mask';
 import { Transaction, TransactionPayload } from '@shared/transactions/interfaces/transaction';
-import { TransactionsService } from '@shared/transactions/services/transactions-service';
+import { TransactionsService } from '@shared/transactions/services/transactions';
 import { Router } from '@angular/router';
-import { Feedback } from '@shared/feedback/services/feedback';
+import { Feedback } from '@shared/feedback/services/feedback.service';
 import { tap } from 'rxjs';
 import { TransactionType } from '@shared/transactions/enums/transaction-type';
 
@@ -22,8 +22,8 @@ import { TransactionType } from '@shared/transactions/enums/transaction-type';
     MatButtonToggleModule,
     NgxMaskDirective,
   ],
-  templateUrl: './create-or-edit.html',
-  styleUrl: './create-or-edit.scss',
+  templateUrl: './create-or-edit.component.html',
+  styleUrl: './create-or-edit.component.scss',
 })
 export class CreateOrEdit {
   private transactionService = inject(TransactionsService);

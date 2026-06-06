@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { Auth } from '../services/auth';
+import { Auth } from '../services/auth.service';
 import { LoggedUser } from '../stores/logged-user';
 import { tap } from 'rxjs';
-import { AuthToken } from '../services/auth-token';
+import { AuthToken } from '../services/auth-token.service';
 
 @Injectable({
   providedIn: 'root',
