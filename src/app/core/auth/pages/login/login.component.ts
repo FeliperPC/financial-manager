@@ -9,6 +9,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { LoggedUser } from '../../stores/logged-user';
 import { LoginFacade } from '../../facades/login-facade';
 import { FullWidthDirective } from '@shared/material/form-field/directives/full-width.directive';
+import { MarginBottomDirective } from '@shared/material/form-field/directives/margin-bottom.directive';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ import { FullWidthDirective } from '@shared/material/form-field/directives/full-
     ReactiveFormsModule,
     MatButtonModule,
     FullWidthDirective,
+    MarginBottomDirective,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
