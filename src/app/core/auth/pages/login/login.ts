@@ -3,11 +3,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Auth } from '../../services/auth';
 import { AuthPayload } from '../../interfaces/authPayload';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AuthToken } from '../../services/auth-token.ts';
 import { LoggedUser } from '../../stores/logged-user';
 import { LoginFacade } from '../../facades/login-facade';
 
@@ -18,8 +16,6 @@ import { LoginFacade } from '../../facades/login-facade';
   styleUrl: './login.scss',
 })
 export class Login {
-  authService = inject(Auth);
-  authToken = inject(AuthToken);
   router = inject(Router);
   userStore = inject(LoggedUser);
   loginFacade = inject(LoginFacade);

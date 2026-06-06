@@ -2,9 +2,9 @@ import { inject, Injectable } from '@angular/core';
 import { AuthPayload } from '../interfaces/authPayload';
 import { Auth } from '../services/auth';
 import { tap, switchMap, pipe } from 'rxjs';
-import { AuthToken } from '../services/auth-token.ts';
 import { LoggedUser } from '../stores/logged-user';
 import { AuthTokenResponse } from '../interfaces/authToken';
+import { AuthToken } from '../services/auth-token';
 
 @Injectable({
   providedIn: 'root',
