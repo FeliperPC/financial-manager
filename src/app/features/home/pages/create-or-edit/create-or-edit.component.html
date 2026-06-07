@@ -8,14 +8,14 @@
       <mat-error>Type is required</mat-error>
     }
   </div>
-  <mat-form-field appMarginBottom appFullWidth>
+  <mat-form-field>
     <mat-label>Title</mat-label>
     <input matInput placeholder="Gaz payment" formControlName="title" required />
     @if (form().controls.title.invalid) {
       <mat-error>Title is required</mat-error>
     }
   </mat-form-field>
-  <mat-form-field appMarginBottom appFullWidth>
+  <mat-form-field>
     <mat-label>Value</mat-label>
     <span matTextPrefix>$ &nbsp;</span>
     <input mask="separator.2" matInput placeholder="13.90" formControlName="value" required />
