@@ -1,6 +1,9 @@
 <mat-card class="card">
   <div>
-    <ng-container *isIncome="transaction().type"> It is income </ng-container>
+    <ng-container *isIncome="transaction().type; else elseTemplate">
+      <mat-chip>Income</mat-chip>
+    </ng-container>
+    <ng-template #elseTemplate><mat-chip>Outcome</mat-chip></ng-template>
     <div class="card-title">{{ transaction().title }}</div>
     <div class="card-value">
       <app-transaction-value [transaction]="transaction()" />

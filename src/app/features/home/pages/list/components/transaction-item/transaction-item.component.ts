@@ -5,6 +5,7 @@ import { TransactionValue } from './components/transaction-value/transaction-val
 import { Transaction } from '@shared/transactions/interfaces/transaction';
 import { CustomColorDirective } from '@shared/material/buttons/directives/custom-color.directive';
 import { IsIncomeDirective } from './directives/is-income.directive';
+import { MatChipsModule } from '@angular/material/chips';
 
 @Component({
   selector: 'app-transaction-item',
@@ -14,6 +15,7 @@ import { IsIncomeDirective } from './directives/is-income.directive';
     TransactionValue,
     CustomColorDirective,
     IsIncomeDirective,
+    MatChipsModule,
   ],
   templateUrl: './transaction-item.component.html',
   styleUrl: './transaction-item.component.scss',
