@@ -1,5 +1,7 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { HumanizedCurrencyPipe } from './pipes/humanized-currency-pipe';
 
 type CardType = 'income' | 'balance' | 'outcome';
 enum ValueCssClass {
@@ -10,7 +12,7 @@ enum ValueCssClass {
 
 @Component({
   selector: 'app-balance-card',
-  imports: [MatCardModule],
+  imports: [MatCardModule, HumanizedCurrencyPipe],
   templateUrl: './balance-card.component.html',
   styleUrl: './balance-card.component.scss',
 })
