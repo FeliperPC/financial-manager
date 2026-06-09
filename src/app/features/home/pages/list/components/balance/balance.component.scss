@@ -1,6 +1,13 @@
+@use 'mixins/media-query' as mq;
+
 :host {
   display: flex;
   gap: 24px;
+  flex-direction: column;
+
+  @include mq.media-query(sm) {
+    flex-direction: row;
+  }
 }
 
 .card {
