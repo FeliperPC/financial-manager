@@ -10,5 +10,9 @@ export class SidenavVisibilityService {
     this.state.update((state) => !state);
   }
 
+  close() {
+    this.state.set(false);
+  }
+
   isVisible = computed(() => this.state());
 }
