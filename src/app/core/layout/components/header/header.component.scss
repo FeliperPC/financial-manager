@@ -1,18 +1,14 @@
-@use 'variables.scss' as vars;
-
 .toolbar {
   display: flex;
-  justify-content: center;
 
   .mat-content {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: vars.$content-width;
+  }
 
-    .btn-logout {
-      margin-left: auto;
-    }
+  .menu-icon {
+    color: var(--mat-sys-on-primary);
   }
 }

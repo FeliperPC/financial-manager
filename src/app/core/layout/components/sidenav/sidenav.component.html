@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav mode="push" opened class="sidenav-content">
+  <mat-sidenav [mode]="sidenaveMode()" [opened]="isSideNavOpen()" class="sidenav">
     <app-sidenav-items />
   </mat-sidenav>
   <mat-sidenav-content>
