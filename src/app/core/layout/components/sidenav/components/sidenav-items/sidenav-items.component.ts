@@ -3,7 +3,7 @@ import { MatListModule } from '@angular/material/list';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { LogoutDirectivesDirective } from './directives/logout.directive';
-import { LoggedUser } from '../../../auth/stores/logged-user';
+import { LoggedUser } from '@auth/stores/logged-user';
 
 @Component({
   selector: 'app-sidenav-items',
