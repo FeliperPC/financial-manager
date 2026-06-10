@@ -8,7 +8,6 @@ import { TransactionItem } from './components/transaction-item/transaction-item.
 import { NoTransaction } from './components/no-transaction/no-transaction.component';
 import { TransactionsService } from '@shared/transactions/services/transactions.service';
 import { SearchComponent } from './components/search/search/search.component';
-import { rxResource } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-list',
@@ -25,13 +24,7 @@ export class List {
 
   search = signal('');
 
-  resourceRef = rxResource({
-    params: () => this.search(),
-    stream: () => {
-      return this.transactionsService.getAll(this.search());
-    },
-    defaultValue: [],
-  });
+  resourceRef = this.transactionsService.getAllByHttpResource(this.search);
 
   edit(transaction: Transaction) {
     this.router.navigate(['edit', transaction.id], { relativeTo: this.activeRoute });
