@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, Signal, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Confirmation } from '@shared/dialog/confirmation/services/confirmation.service';
 import { Feedback } from '@shared/feedback/services/feedback.service';
@@ -8,6 +8,13 @@ import { TransactionItem } from './components/transaction-item/transaction-item.
 import { NoTransaction } from './components/no-transaction/no-transaction.component';
 import { TransactionsService } from '@shared/transactions/services/transactions.service';
 import { SearchComponent } from './components/search/search/search.component';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { debounceTime } from 'rxjs';
+
+function typeDelay(value: Signal<string>) {
+  const observable = toObservable(value).pipe(debounceTime(1000));
+  return toSignal(observable, { initialValue: '' });
+}
 
 @Component({
   selector: 'app-list',
@@ -24,7 +31,7 @@ export class List {
 
   search = signal('');
 
-  resourceRef = this.transactionsService.getAllByHttpResource(this.search);
+  resourceRef = this.transactionsService.getAllByHttpResource(typeDelay(this.search));
 
   edit(transaction: Transaction) {
     this.router.navigate(['edit', transaction.id], { relativeTo: this.activeRoute });
