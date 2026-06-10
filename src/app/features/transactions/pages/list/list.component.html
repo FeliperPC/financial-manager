@@ -4,7 +4,7 @@
 </div>
 
 <div class="transactions">
-  @for (transaction of list(); track $index) {
+  @for (transaction of resourceRef.value(); track $index) {
     <app-transaction-item
       class="transaction"
       [transaction]="transaction"

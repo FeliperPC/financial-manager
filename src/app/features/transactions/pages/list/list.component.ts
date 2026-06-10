@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, linkedSignal, model, signal } from '@angular/core';
+import { Component, inject, resource, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Confirmation } from '@shared/dialog/confirmation/services/confirmation.service';
 import { Feedback } from '@shared/feedback/services/feedback.service';
@@ -8,6 +8,7 @@ import { TransactionItem } from './components/transaction-item/transaction-item.
 import { NoTransaction } from './components/no-transaction/no-transaction.component';
 import { TransactionsService } from '@shared/transactions/services/transactions.service';
 import { SearchComponent } from './components/search/search/search.component';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -19,13 +20,18 @@ export class List {
   private router = inject(Router);
   private activeRoute = inject(ActivatedRoute);
   transactionsService = inject(TransactionsService);
-  transactions = input.required<Transaction[]>();
   snackBarService = inject(Feedback);
   dialogService = inject(Confirmation);
 
   search = signal('');
 
-  list = linkedSignal(() => this.transactions());
+  resourceRef = resource({
+    params: () => this.search(),
+    loader: () => {
+      return firstValueFrom(this.transactionsService.getAll(this.search()));
+    },
+    defaultValue: [],
+  });
 
   edit(transaction: Transaction) {
     this.router.navigate(['edit', transaction.id], { relativeTo: this.activeRoute });
@@ -50,6 +56,8 @@ export class List {
   }
 
   private removeTransactionFromArray(transaction: Transaction) {
-    this.list.update((transactions) => transactions.filter((item) => item.id !== transaction.id));
+    this.resourceRef.update((transactions) =>
+      transactions.filter((item) => item.id !== transaction.id),
+    );
   }
 }
