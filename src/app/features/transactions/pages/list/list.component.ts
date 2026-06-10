@@ -1,4 +1,4 @@
-import { Component, inject, Signal, signal } from '@angular/core';
+import { Component, computed, inject, Signal, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Confirmation } from '@shared/dialog/confirmation/services/confirmation.service';
 import { Feedback } from '@shared/feedback/services/feedback.service';
@@ -10,6 +10,7 @@ import { TransactionsService } from '@shared/transactions/services/transactions.
 import { SearchComponent } from './components/search/search/search.component';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { debounceTime } from 'rxjs';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 function typeDelay(value: Signal<string>) {
   const observable = toObservable(value).pipe(debounceTime(1000));
@@ -18,20 +19,29 @@ function typeDelay(value: Signal<string>) {
 
 @Component({
   selector: 'app-list',
-  imports: [TransactionItem, NoTransaction, MatButtonModule, RouterLink, SearchComponent],
+  imports: [
+    TransactionItem,
+    NoTransaction,
+    MatButtonModule,
+    RouterLink,
+    SearchComponent,
+    MatProgressBarModule,
+  ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
 export class List {
   private router = inject(Router);
   private activeRoute = inject(ActivatedRoute);
-  transactionsService = inject(TransactionsService);
-  snackBarService = inject(Feedback);
-  dialogService = inject(Confirmation);
+  private transactionsService = inject(TransactionsService);
+  private snackBarService = inject(Feedback);
+  private dialogService = inject(Confirmation);
 
   search = signal('');
 
   resourceRef = this.transactionsService.getAllByHttpResource(typeDelay(this.search));
+  transactions = computed(() => this.resourceRef.value());
+  isLoading = computed(() => this.resourceRef.isLoading());
 
   edit(transaction: Transaction) {
     this.router.navigate(['edit', transaction.id], { relativeTo: this.activeRoute });
