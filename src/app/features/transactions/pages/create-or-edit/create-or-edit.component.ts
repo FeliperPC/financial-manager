@@ -67,7 +67,6 @@ export class CreateOrEdit {
 
     this.createOrEdit(payload).subscribe({
       next: () => {
-        console.log('here');
         this.router.navigate(['../../'], { relativeTo: this.activeRoute });
       },
     });

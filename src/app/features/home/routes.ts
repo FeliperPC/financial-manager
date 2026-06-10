@@ -1,26 +1,13 @@
 import { Routes } from '@angular/router';
-import { CreateOrEdit } from './pages/create-or-edit/create-or-edit.component';
-import { getTransactionByIdResolver } from './pages/create-or-edit/resolvers/get-transaction-by-id-resolver';
-import { List } from './pages/list/list.component';
-import { getTransactionsResolver } from './pages/list/resolvers/get-transactions-resolver';
+import { getTransactionsResolver } from './resolvers/get-transactions-resolver';
+import { Home } from './home.component';
 
 export default [
   {
     path: '',
-    component: List,
+    component: Home,
     resolve: {
       transactions: getTransactionsResolver,
-    },
-  },
-  {
-    path: 'create',
-    component: CreateOrEdit,
-  },
-  {
-    path: 'edit/:id',
-    component: CreateOrEdit,
-    resolve: {
-      transaction: getTransactionByIdResolver,
     },
   },
 ] as Routes;

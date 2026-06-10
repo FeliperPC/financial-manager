@@ -1,4 +1,4 @@
-import { Component, inject, input, linkedSignal, signal } from '@angular/core';
+import { Component, computed, inject, input, linkedSignal, model, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Confirmation } from '@shared/dialog/confirmation/services/confirmation.service';
 import { Feedback } from '@shared/feedback/services/feedback.service';
@@ -6,12 +6,12 @@ import { Transaction } from '@shared/transactions/interfaces/transaction';
 import { MatButtonModule } from '@angular/material/button';
 import { TransactionItem } from './components/transaction-item/transaction-item.component';
 import { NoTransaction } from './components/no-transaction/no-transaction.component';
-import { Balance } from './components/balance/balance.component';
 import { TransactionsService } from '@shared/transactions/services/transactions.service';
+import { SearchComponent } from './components/search/search/search.component';
 
 @Component({
   selector: 'app-list',
-  imports: [Balance, TransactionItem, NoTransaction, MatButtonModule, RouterLink],
+  imports: [TransactionItem, NoTransaction, MatButtonModule, RouterLink, SearchComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
@@ -22,6 +22,8 @@ export class List {
   transactions = input.required<Transaction[]>();
   snackBarService = inject(Feedback);
   dialogService = inject(Confirmation);
+
+  search = signal('');
 
   list = linkedSignal(() => this.transactions());
 

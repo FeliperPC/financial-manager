@@ -1,7 +1,6 @@
-<app-balance [transactions]="list()"></app-balance>
-
 <div class="actions">
-  <a matButton="filled" routerLink="create/new">New Transaction</a>
+  <app-search class="search" [(search)]="search"></app-search>
+  <a matButton="filled" routerLink="create/new" class="btn">New Transaction</a>
 </div>
 
 <div class="transactions">

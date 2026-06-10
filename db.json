@@ -1,13 +1,7 @@
 {
   "transactions": [
     {
-      "title": "Salary",
-      "value": 25006,
-      "type": "income",
-      "id": "FRq4DU6y__E"
-    },
-    {
-      "title": "Safe amount",
+      "title": "Safe amountdd",
       "value": 15000,
       "type": "income",
       "id": "4W_aXodAc30"
@@ -23,12 +17,6 @@
       "value": 6550,
       "type": "outcome",
       "id": "8iwoJr0wrLA"
-    },
-    {
-      "title": "this is a test",
-      "value": 555,
-      "type": "outcome",
-      "id": "aHBAWRme6MU"
     },
     {
       "title": "aba",
