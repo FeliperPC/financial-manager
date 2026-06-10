@@ -1,0 +1,22 @@
+@use 'mixins/media-query' as mq;
+
+.income {
+  color: var(--custom-color-success);
+}
+.outcome {
+  color: var(--mat-sys-error);
+}
+
+.zero {
+  color: var(--mat-sys-outline);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mq.media-query(sm) {
+    align-items: flex-start;
+  }
+}

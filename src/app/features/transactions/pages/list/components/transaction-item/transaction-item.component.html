@@ -1,0 +1,18 @@
+<mat-card class="card">
+  <div>
+    <ng-container *isIncome="transaction().type; else elseTemplate">
+      <mat-chip>Income</mat-chip>
+    </ng-container>
+    <ng-template #elseTemplate><mat-chip>Outcome</mat-chip></ng-template>
+    <div class="card-title">{{ transaction().title }}</div>
+    <div class="card-value">
+      <app-transaction-value [transaction]="transaction()" />
+    </div>
+  </div>
+  <div class="card-actions">
+    <button matButton="filled" matButtonColor="error" (click)="remove.emit(transaction())">
+      Remove
+    </button>
+    <button matButton="filled" (click)="edit.emit(transaction())">Edit</button>
+  </div>
+</mat-card>

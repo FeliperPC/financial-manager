@@ -2,7 +2,7 @@
   "transactions": [
     {
       "title": "Salary",
-      "value": 25000,
+      "value": 25006,
       "type": "income",
       "id": "FRq4DU6y__E"
     },
@@ -14,8 +14,8 @@
     },
     {
       "title": "This is a test",
-      "value": 2500,
-      "type": "income",
+      "value": 2551,
+      "type": "outcome",
       "id": "bvN_zo_HyQk"
     },
     {
@@ -23,6 +23,18 @@
       "value": 6550,
       "type": "outcome",
       "id": "8iwoJr0wrLA"
+    },
+    {
+      "title": "this is a test",
+      "value": 555,
+      "type": "outcome",
+      "id": "aHBAWRme6MU"
+    },
+    {
+      "title": "aba",
+      "value": 22,
+      "type": "income",
+      "id": "PvO_SGuB5WQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
