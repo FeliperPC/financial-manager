@@ -17,12 +17,6 @@
       "value": 6550,
       "type": "outcome",
       "id": "8iwoJr0wrLA"
-    },
-    {
-      "title": "aba",
-      "value": 22,
-      "type": "income",
-      "id": "PvO_SGuB5WQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
