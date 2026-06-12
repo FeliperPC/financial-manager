@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, Signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -26,6 +26,7 @@ import { CustomFormFieldDirective } from '@shared/material/form-field/directives
   ],
   templateUrl: './create-or-edit.component.html',
   styleUrl: './create-or-edit.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateOrEdit {
   private transactionService = inject(TransactionsService);

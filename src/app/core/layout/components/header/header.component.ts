@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BtnToggleSidenavComponent } from './components/btn-toggle-sidenav/btn-toggle-sidenav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -7,5 +7,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [BtnToggleSidenavComponent, MatToolbarModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header {}

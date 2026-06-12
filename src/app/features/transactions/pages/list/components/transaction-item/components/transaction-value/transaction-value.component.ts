@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TransactionType } from '@shared/transactions/enums/transaction-type';
 import { Transaction } from '@shared/transactions/interfaces/transaction';
 
@@ -16,6 +16,7 @@ const cssClass = {
   host: {
     '[class]': 'cssClass()',
   },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TransactionValue {
   transaction = input.required<Transaction>();

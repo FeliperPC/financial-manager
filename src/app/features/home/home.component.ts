@@ -1,4 +1,4 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
 import { Transaction } from '@shared/transactions/interfaces/transaction';
 import { Balance } from './components/balance/balance.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
@@ -23,6 +23,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home {
   transactions = input.required<Transaction[]>();

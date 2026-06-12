@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,6 +17,7 @@ import { SidenavVisibilityService } from '../../../../stores/sidenav-visibility.
   ],
   templateUrl: './sidenav-items.component.html',
   styleUrl: './sidenav-items.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidenavItemsComponent {
   private readonly store = inject(LoggedUser);

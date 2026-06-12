@@ -1,4 +1,4 @@
-import { Component, computed, inject, Signal, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, Signal, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Confirmation } from '@shared/dialog/confirmation/services/confirmation.service';
 import { Feedback } from '@shared/feedback/services/feedback.service';
@@ -29,6 +29,7 @@ function typeDelay(value: Signal<string>) {
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class List {
   private router = inject(Router);
