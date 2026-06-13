@@ -8,7 +8,7 @@ import { DialogData } from '../interfaces/dialogData';
   providedIn: 'root',
 })
 export class Confirmation {
-  readonly dialog = inject(MatDialog);
+  private readonly dialog = inject(MatDialog);
   open(data: DialogData) {
     return this.dialog
       .open(DialogConfirmation, { data })
