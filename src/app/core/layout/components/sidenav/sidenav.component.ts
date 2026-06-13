@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavItemsComponent } from './components/sidenav-items/sidenav-items.component';
 import { MobileLayoutService } from '../../services/mobile-layout.service';
-import { SidenavVisibilityService } from '../../stores/sidenav-visibility.store';
+import { SidenavVisibilityStore } from '../../stores/sidenav-visibility.store';
 
 @Component({
   selector: 'app-sidenav',
@@ -14,7 +14,7 @@ import { SidenavVisibilityService } from '../../stores/sidenav-visibility.store'
 export class SidenavComponent {
   private readonly mobileLayoutService = inject(MobileLayoutService);
   isMobile = this.mobileLayoutService.isMobile();
-  sidenavStore = inject(SidenavVisibilityService);
+  sidenavStore = inject(SidenavVisibilityStore);
 
   sidenaveMode = computed(() => (this.isMobile() ? 'over' : 'side'));
 
